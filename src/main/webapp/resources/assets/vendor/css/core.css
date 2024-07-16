@@ -3842,6 +3842,9 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: 0 solid #d9dee3;
   border-radius: 0.5rem;
+  width: 30%; /* 화면 너비의 50% */
+  height: 30%; /* 화면 높이의 50% */
+  margin: auto; /* 중앙 정렬 */
 }
 .card > hr {
   margin-right: 0;

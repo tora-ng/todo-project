@@ -1,19 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
--->
-<!-- beautify ignore:start -->
 <html
-        lang="en"
+        lang="ko"
         class="light-style layout-menu-fixed"
         dir="ltr"
         data-theme="theme-default"
@@ -21,15 +11,9 @@
         data-template="vertical-menu-template-free"
 >
 <head>
-    <meta charset="utf-8" />
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-
+    <meta charset="UTF-8">
     <title>Dashboard - Analytics | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-
-    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="resources/assets/img/favicon/favicon.ico" />
@@ -143,7 +127,7 @@
                 <li class="menu-item active">
                     <a href="index.html" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                        <div data-i18n="Analytics">Dashboard</div>
+                        <div data-i18n="Analytics">Home</div>
                     </a>
                 </li>
 
@@ -151,7 +135,7 @@
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-layout"></i>
-                        <div data-i18n="Layouts">Layouts</div>
+                        <div data-i18n="Layouts">-</div>
                     </a>
 
                     <ul class="menu-sub">
@@ -188,35 +172,17 @@
                 </li>
                 <li class="menu-item">
                     <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-dock-top"></i>
-                        <div data-i18n="Account Settings">Account Settings</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="pages-account-settings-account.html" class="menu-link">
-                                <div data-i18n="Account">Account</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="pages-account-settings-notifications.html" class="menu-link">
-                                <div data-i18n="Notifications">Notifications</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="pages-account-settings-connections.html" class="menu-link">
-                                <div data-i18n="Connections">Connections</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
                         <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                         <div data-i18n="Authentications">Authentications</div>
                     </a>
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                            <a href="${pageContext.request.contextPath}/todo/todoListPage" class="menu-link" target="_blank">
+                                <div data-i18n="Basic">Todo-List</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="${pageContext.request.contextPath}/login/loginForm" class="menu-link" target="_blank">
                                 <div data-i18n="Basic">Login</div>
                             </a>
                         </li>
@@ -228,24 +194,6 @@
                         <li class="menu-item">
                             <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
                                 <div data-i18n="Basic">Forgot Password</div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item">
-                    <a href="javascript:void(0);" class="menu-link menu-toggle">
-                        <i class="menu-icon tf-icons bx bx-cube-alt"></i>
-                        <div data-i18n="Misc">Misc</div>
-                    </a>
-                    <ul class="menu-sub">
-                        <li class="menu-item">
-                            <a href="pages-misc-error.html" class="menu-link">
-                                <div data-i18n="Error">Error</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="pages-misc-under-maintenance.html" class="menu-link">
-                                <div data-i18n="Under Maintenance">Under Maintenance</div>
                             </a>
                         </li>
                     </ul>
@@ -523,7 +471,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex-grow-1">
-                                                <span class="fw-semibold d-block">John Doe</span>
+                                                <span class="fw-semibold d-block">양세윤</span>
                                                 <small class="text-muted">Admin</small>
                                             </div>
                                         </div>
@@ -536,6 +484,12 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="bx bx-user me-2"></i>
+                                        <span class="align-middle" id="loginBtn">Login</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1186,4 +1140,22 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
+
+<script>
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.addEventListener('click', e => {
+        console.log('btn')
+        $.ajax({
+            url: '/openLoginForm.do',
+            type: "GET",
+            success: function (result) {
+            },
+            error: function (xhr, status, error) {
+                alert(`\nStatus: \${xhr.status}\nStatusText: \${xhr.statusText}\nError: \${error}`);
+            }
+        });
+    })
+
+
+</script>
 </html>
