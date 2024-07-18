@@ -11,7 +11,7 @@
         data-template="vertical-menu-template-free"
 >
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
@@ -19,14 +19,14 @@
 
     <title>Tables - Basic Tables | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
 
-    <meta name="description" content=""/>
+    <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/resources/assets/img/favicon/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/resources/assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
             href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
@@ -51,13 +51,10 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/resources/assets/js/config.js"></script>
-    <script src="../../../resources/libs/fullcalendar/index.global.min.js"></script>
 </head>
 
 <style>
-    .card {
-        width: 100%;
-
+    input[type="checkbox"]{
     }
 </style>
 
@@ -605,6 +602,34 @@
                             </span>
                         </div>
                     </div>
+                    <div class="card" style="padding: 10px">
+                        <h5 class="card-header">Todo List</h5>
+                        <div class="table-responsive text-nowrap" style="padding: 1.5rem 1.5rem">
+                            <div><label>
+                                <input type="checkbox" >
+                            </label> 빨래 널기</div>
+                            <div><label>
+                                <input type="checkbox" >
+                            </label> 빨래 널기</div>
+                            <div><label>
+                                <input type="checkbox" >
+                            </label> 빨래 널기</div>
+                        </div>
+                    </div>
+                        <div class="card" style="padding: 10px">
+                            <h5 class="card-header">Todo List</h5>
+                            <div class="table-responsive text-nowrap" style="padding: 1.5rem 1.5rem">
+                                <div><label>
+                                    <input type="checkbox" >
+                                </label> 빨래 널기</div>
+                                <div><label>
+                                    <input type="checkbox" >
+                                </label> 빨래 널기</div>
+                                <div><label>
+                                    <input type="checkbox" >
+                                </label> 빨래 널기</div>
+                            </div>
+                        </div>
                     </div>
                     <!--/ Basic Bootstrap Table -->
                 </div>
@@ -620,7 +645,6 @@
     <div class="layout-overlay layout-menu-toggle"></div>
 </div>
 <!-- / Layout wrapper -->
-<div id="calendar"></div>
 
 <div class="buy-now">
     <a
@@ -651,14 +675,4 @@
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth'
-        });
-        calendar.render();
-    });
-
-</script>
 </html>
