@@ -82,17 +82,15 @@
 <body>
 
 
+<!-- Content wrapper -->
+<div class="content-wrapper">
+    <!-- Content -->
 
-
-            <!-- Content wrapper -->
-            <div class="content-wrapper">
-                <!-- Content -->
-
-                <div class="container-xxl flex-grow-1 container-p-y" >
-                    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
-                    <%-- Calandar 부분 --%>
-                    <span>
-                    <div id="calendar" style="width: 800px; float: left"></div>
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+        <%-- Calandar 부분 --%>
+        <span>
+            <div id="calendar" style="width: 800px; float: left"></div>
                     <div style="display: flex">
                         <div class="card">
                                 <h5 class="card-header">✅ Todo List
@@ -129,20 +127,21 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        <button style="width: 50px;" id="saveBtn">저장</button>
                     </div>
-                        </span>
-                </div>
-
-                <div class="content-backdrop fade"></div>
             </div>
-            <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
+        </span>
     </div>
+</div>
 
-    <!-- Overlay -->
-    <div class="layout-overlay layout-menu-toggle"></div>
+<div class="content-backdrop fade"></div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
+</div>
+
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
 </div>
 
 
@@ -167,6 +166,39 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 <script>
+    const saveBtn = document.getElementById('saveBtn');
+    saveBtn.addEventListener('click', e => {
+        const labelElms = document.querySelectorAll('label');
+        const result = [];
+
+        labelElms.forEach(label => {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            const textInput = label.querySelector('input[type="text"]');
+
+            const obj = {
+                checked: checkbox.checked,
+                text: textInput.value
+            };
+
+            result.push(obj);
+        });
+
+        $.ajax({
+            url: '/todo/saveData',
+            type: "POST",
+            contentType: "application/json",
+            dataType: 'text',
+            data: JSON.stringify(result),
+            success: function (result) {
+                console.log('result: ', result);
+            },
+            error: function (xhr, status, error) {
+                alert(`\nStatus: \${xhr.status}\nStatusText: \${xhr.statusText}\nError: \${error}`);
+            }
+        });
+    });
+
+
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
